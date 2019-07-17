@@ -11,7 +11,7 @@ const store = (function () {
   let hideCompleted = false;
   let searchTerm = null;
 
-  function findById() {
+  function findById(id) {
     return items.find((item) => id === item.id); 
   }
 
@@ -31,7 +31,7 @@ const store = (function () {
 
     function findAndUpdateName(id, newName) {
       try {
-        item.validateName(newName);
+        Item.validateName(newName);
         this.findById(id).name = newName;
       }
       catch(error) {
@@ -47,7 +47,7 @@ const store = (function () {
     }
 
     function setSearchTerm(val) {
-      STORE.searchTerm = val;
+      store.searchTerm = val;
     }
 
   return {items,
