@@ -2,8 +2,6 @@
 
 const store = (function () {
   
-  const foo = "bar";
-  
   let items = [
     {id: cuid(), name: "apples", checked: false, isEditing: false},
     {id: cuid(), name: "oranges", checked: false, isEditing: false},
@@ -19,8 +17,8 @@ const store = (function () {
 
   function addItem(name) {
     try {
-      item.validateName(name);
-      this.items.push(item.create(name));
+      Item.validateName(name);
+      this.items.push(Item.create(name));
     }
     catch(error) {
       console.log(`Cannot add item: ${error.message}`)
@@ -38,7 +36,7 @@ const store = (function () {
       }
       catch(error) {
         console.log(`Cannot update name: ${error.message}`);
-      }
+      }}
 
     function findAndDelete(id) {
       this.items = this.items.filter(item => item.id !== id);
@@ -51,8 +49,6 @@ const store = (function () {
     function setSearchTerm(val) {
       STORE.searchTerm = val;
     }
-
-  }
 
   return {items,
       hideCompleted,
