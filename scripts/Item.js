@@ -1,15 +1,10 @@
 'use strict';
 
-const item = (function() {
-    return {
-        validateName,
-        create
-    };
-}());
-
+const Item = (function() {
+    
 function validateName(name){
     if (!name) {
-        throw new Error ('This name does not exist');
+        throw new TypeError ('This name does not exist');
     }
 
 }
@@ -20,3 +15,9 @@ function create(name) {
             checked: false
         };
 }
+
+return {
+    validateName,
+    create
+};
+}());

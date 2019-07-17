@@ -223,16 +223,17 @@ function handleShoppingList() {
   handleItemNameClick();
   handleEditItemForm();
   const itemNames = [ '', 'apples', 'pears' ];
-itemNames.forEach(name => {
-try {
-  Item.validateName(name);
-  store.items.push(Item.create(name));
-} catch(error) {
-  console.log('Cannot add item: ' + error.message);
-}
-});
-shoppingList.render();
-}
+  itemNames.forEach(name => {
+    try {
+    Item.validateName(name);
+    STORE.items.push(Item.create(name));
+    }
+    catch(error) {
+    console.log('Cannot add item: ' + error.message);
+    }
+    });
+    renderShoppingList();
+    }
 
 // when the page loads, call `handleShoppingList`
 $(handleShoppingList);
